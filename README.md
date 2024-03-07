@@ -11,8 +11,8 @@ We plan to utilize the following tools in carrying out our comparison. For runni
 
 Our codebase currently contains two scripts, one for data phenotype simulation and one which executes commands relevant to the fitting of LMMs.
 
-The script ./pheno_sim.sh handles data simulation. It relies on the GCTA software. GCTA allows for the simulation of a phenotypes given a VCF of snps according to following formula: $y_j = \sum_i(w_{ij} \cdot u_i) + e_j$,
-where $w_{ij} = (x_{ij} - 2p_i) / \sqrt{2p_i(1 - p_i)}$. Here, $j$ indexes individuals and $i$ causal snps; $x_{ij}$ is the number of reference alleles for the $i^{th}$ causal variant, $p_i$ is the frequency of the $i^{th}$ causal variant, and $u_i$ is the effect size (akin to $\beta_i in our class slides). Errors $e_j$ are $0$ mean normally distributed with variance on the order of $1/h^2 - 1$, where $h \in (0, 1)$ specifies the trait heritability. ./pheno_sim.sh is built around commands of the following type:
+The script ```./pheno_sim.sh``` handles data simulation. It relies on the GCTA software. GCTA allows for the simulation of a phenotypes given a VCF of snps according to following formula: $y_j = \sum_i(w_{ij} \cdot u_i) + e_j$,
+where $w_{ij} = (x_{ij} - 2p_i) / \sqrt{2p_i(1 - p_i)}$. Here, $j$ indexes individuals and $i$ causal snps; $x_{ij}$ is the number of reference alleles for the $i^{th}$ causal variant, $p_i$ is the frequency of the $i^{th}$ causal variant, and $u_i$ is the effect size (akin to $\beta_i$ in our class slides). Errors $e_j$ are $0$ mean normally distributed with variance on the order of $1/h^2 - 1$, where $h \in (0, 1)$ specifies the trait heritability. ./pheno_sim.sh is built around commands of the following type:
 ```
 
 ./gcta64  --bfile causal_snps  \
