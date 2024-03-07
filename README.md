@@ -1,3 +1,6 @@
+Group Number : 7
+Group Members : Chhavi Yadav, Nicholas Rittler
+
 ### PROJECT PROPOSAL 
 
 A phenotype is the result of both environmental and genetic factors, and the contribution varies for different traits. In this project, we are interested in the heritability of a trait due to genetic factors. There are several methods to  estimate this, some using data from related individuals and others using data from unrelated individuals. We focus on the latter, and consider two such methods - Linear Mixed Models (LMM) and LD-Score Regression. To this end, the goal of our project is to characterize when and by how much the heritability estimates arising from these two methods differ.
