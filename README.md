@@ -40,13 +40,10 @@ As we expand our analysis to larger data sets, we will include a script for splt
 
 ```Simulations``` is a folder containing phenotype simulations from 6 causal SNPs with ```.phen``` extensioins, as well as files with ```.snplist``` extensions passed to ```--simu-causal-loci```; these specify effect sizes in the format described above. The simulation files are titled in the form ```"traits_h=${h}_betamult=${beta_multiple}```, where $h$ signifies heritability values, and "beta multiple" refers to a multiple of an underlying effect size vector $\beta$ with components on various orders of magnitude. For our simulations on 6 causal SNPs, the underlying $\beta$ used is $\beta = (1,.5, .1, .01, -.1, -.5)^T$. We considered "beta multiples" of 1 and $.01$, $1$, $2$, $5$, and $10$, and heritabilitiy values of $.01$, $.1$, $.2$, $.5$ and $.9$.  ```Simulations``` contains simulated phenotypes from all combinations of these beta multiples and hertiabilities. 
 
-### EXPERIMENT OUTCOMES, DESIGN GOING FORWARDS
+### EXPERIMENT OUTCOMES
 
-So far we've simulated phenotypes and fit models for a small sample of around 200 individuals at 6 snps (using the VCF for eye color phenotypes from problem set 3) using the effect sizes and heritabilities described above. The results can be found in the table below.
+So far we've simulated phenotypes and fit models for a small sample of around 200 individuals at 6 snps (using the VCF for eye color phenotypes from problem set 3) using the effect sizes and heritabilities described above. The heritability results generated using GCTA in the ```Results``` folder.  We report them in the scatterplot below.
 
-|   | Simulation 1 (0.01) | Simulation 2 (1) | Simulation 3 (0.01)| Simulation 4 (1) |
-| -------- | -------- | -------- | -------- | -------- |
-| LMM Heritability |0  | 0.000001 | 0.104| 0.062 |
-| GT Heritability| 0.001 | 0.001 | 0.1 | 0.1 |
+### TO DO
 
-We plan to run the full experiments on a single chromosome (restricted to maf > .05). We will vary heritability and effect size in a variety of ways and report the accuracy of the estimation methods (perhaps visually as a function of the norm of the effect size vector and true underlying heritability used in the phenotype simulations). 
+Firstly, we are left with the other half of the project, that is calculating heritability using LD-Score Regression. We plan to run the full experiments on a single chromosome (restricted to maf > .05). We will vary heritability and effect size in a variety of ways and report the accuracy of the estimation methods (perhaps visually as a function of the norm of the effect size vector and true underlying heritability used in the phenotype simulations). 
