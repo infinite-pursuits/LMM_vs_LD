@@ -25,7 +25,14 @@ where $w_{ij} = (x_{ij} - 2p_i) / \sqrt{2p_i(1 - p_i)}$. Here, $j$ indexes indiv
 ```
 Here the binary files contains snps for individuals $j$,  ```simu-causal-loci``` is a text file with a column of causal snps and effect sizes $u_i$, ```simu-hsq``` specifies the heritability $h$, and ```simu-rep``` gives the number of simulations to run. The script loops over various values of effect size and heritability $h$ in order to generate a variety of regimes for investigation.
 
-The script ___ carries out fitting of LMMs, also relying on GCTA software. 
+The script ```LMM_heritability.sh``` carries out fitting of LMMs, and also relyies on the GCTA software. The first command ```mlma`` produces the genetic relationship matrix. We finally estimate the heritability with the command
+```
+./gcta64 --reml \
+                 --grm-bin "GCTAgrm_herit${herit}_beta${betamult}" \
+                 --pheno "traits_h=${herit}_betamult=${betamult}.phen" \
+                 --out "GCTAherit_herit${herit}_beta${betamult}"
+```
+for a given underlying heritability $h$ and beta multiple pair. 
 
 As we expand our analysis to larger data sets, we will include a script for spltting the 1000 Genomes VCF into the relevant files for analysis.
 
