@@ -11,8 +11,8 @@ We plan to utilize the following tools in carrying out our comparison. For runni
 
 Our codebase currently contains two scripts, one for data phenotype simulation and one which executes commands relevant to the fitting of LMMs.
 
-The script ```./pheno_sim.sh``` handles data simulation. It relies on the GCTA software. GCTA allows for the simulation of a phenotypes given a VCF of snps according to following formula: $y_j = \sum_i(w_{ij} \cdot u_i) + e_j$,
-where $w_{ij} = (x_{ij} - 2p_i) / \sqrt{2p_i(1 - p_i)}$. Here, $j$ indexes individuals and $i$ causal snps; $x_{ij}$ is the number of reference alleles for the $i^{th}$ causal variant, $p_i$ is the frequency of the $i^{th}$ causal variant, and $u_i$ is the effect size (akin to $\beta_i$ in our class slides). Errors $e_j$ are $0$ mean normally distributed with variance on the order of $1/h^2 - 1$, where $h \in (0, 1)$ specifies the trait heritability. ./pheno_sim.sh is built around commands of the following type:
+The script ```./pheno_sim.sh``` handles data simulation. It relies on the GCTA software. GCTA allows for the simulation of a phenotypes given a VCF of snps according to following formula: $y_j = \sum_i(w_{ij} \cdot \beta_i) + e_j$,
+where $w_{ij} = (x_{ij} - 2p_i) / \sqrt{2p_i(1 - p_i)}$. Here, $j$ indexes individuals and $i$ causal snps; $x_{ij}$ is the number of reference alleles for the $i^{th}$ causal variant, $p_i$ is the frequency of the $i^{th}$ causal variant, and $\beta_i$ is the effect size. Errors $e_j$ are $0$ mean normally distributed with variance on the order of $1/h^2 - 1$, where $h \in (0, 1)$ specifies the trait heritability. ./pheno_sim.sh is built around commands of the following type:
 ```
 
 ./gcta64  --bfile causal_snps  \
@@ -31,7 +31,7 @@ As we expand our analysis to larger data sets, we will include a script for splt
 
 ### DESCRIPTION OF FILES 
 
-```Simulations``` is a folder containing phenotype simulations with ```.phen``` extensioins, as well as files passed to ```--simu-causal-loci``` specifying effect sizes in the format described above. The simulation files are titled in the form ```"traits_h=${h}_betamult=${beta_multiple}```, where $h$ represents different heritabilities, and beta multiples refers to multiples of a effect size vector with components on various orders of magnitude. 
+```Simulations``` is a folder containing phenotype simulations from 6 causal SNPs with ```.phen``` extensioins, as well as files with ```.snplist``` extensions passed to ```--simu-causal-loci```; these specify effect sizes in the format described above. The simulation files are titled in the form ```"traits_h=${h}_betamult=${beta_multiple}```, where $h$ signifies heritability values, and "beta multiple" refers to multiples of an underlying effect size vector $\beta$ with components on various orders of magnitude. For our simulations on 6 causal SNPs, the underlying $\beta$ used is $\beta = (1,.5, .1, .01, -.1, -.5)^T$. Because we considered "beta multiples" of 1 and $.01$, our simulations are run using either $\beta$ or $.01 \cdot \beta$. We also considered heritabilitiy values of $.1$ and $.01$, and ran simulations at all combinations of $h$ and effect size.
 
 ### EXPERIMENT DESIGN GOING FORWARDS
 
