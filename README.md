@@ -44,7 +44,7 @@ As we expand our analysis to larger data sets, we will include a script for splt
 
 So far we've simulated phenotypes and fit models for a small sample of around 200 individuals at 6 snps (using the VCF for eye color phenotypes from problem set 3) using the effect sizes and heritabilities described above. The heritability results generated using GCTA in the ```Results``` folder.  We report them in the scatterplot below.
 
-![Local Image](scatter_plot.pdf)
+![Scatter Plot](scatter_plot.pdf)
 ### TO DO
 
 Firstly, we are left with the other half of the project, that is calculating heritability using LD-Score Regression. We plan to run the full experiments on a single chromosome (restricted to maf > .05). We will vary heritability and effect size in a variety of ways and report the accuracy of the estimation methods (perhaps visually as a function of the norm of the effect size vector and true underlying heritability used in the phenotype simulations). 
