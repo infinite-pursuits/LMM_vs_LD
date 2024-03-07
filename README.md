@@ -1,26 +1,39 @@
-# PROJECT PROPOSAL 
+### PROJECT PROPOSAL 
 
 A phenotype is the result of both environmental and genetic factors, and the contribution varies for different traits. In this project, we are interested in the heritability of a trait due to genetic factors. There are several methods to  estimate this, some using data from related individuals and others using data from unrelated individuals. We focus on the latter, and consider two such methods - Linear Mixed Models (LMM) and LD-Score Regression. To this end, the goal of our project is to \textit{characterize when and by how much the heritability estimates arising from these two methods differ.}
 
 We plan to use the 1000Genomes dataset as the basis for our investigation. Unfortunately, the 1000Geonomes data does not come with phenotypic observations. To overcome this challenge, we plan to simulate synthetic phenotypic observations stemming from various effect sizes. The upside of this approach is that it affords us access to useful ground-truth information, which can give insight into the efficacy of each of the methods in various settings. For example, it  might be interesting to conduct some sort of sensitivity analysis on the standard assumptions of linearity.
 
-We plan to utilize the following tools in carrying out our comparison. For running LMMs, we will use GCTA~\cite{gcta_website}. For LD-Score Regression, we will use the LDSC python library~\cite{ldsc_repository}. For LD-Score Regresssion, we will have to find the summary statistics and LD values first, and then feed them to the tool. Apart from difference in the values, we hope to see that LD-Score catches confounding in some cases while LMM doesn't. For this we might simulate data accordingly. We will be reporting the numbers and drawing QQ plots.
+We plan to utilize the following tools in carrying out our comparison. For running LMMs, we will use GCTA (https://yanglab.westlake.edu.cn/software/gcta/#GWASSimulation). For LD-Score Regression, we will use the LDSC python library (https://github.com/bulik/ldsc). For LD-Score Regresssion, we will have to find the summary statistics and LD values first, and then feed them to the tool. Apart from difference in the values, we hope to see that LD-Score catches confounding in some cases while LMM doesn't. For this we might simulate data accordingly. We will be reporting the numbers and drawing QQ plots.
 
 
-# EXPLANATION OF CODE
+### EXPLANATION OF CODE
 
 Our codebase currently contains two scripts, one for data phenotype simulation and one which executes commands relevant to the fitting of LMMs.
 
-The script ./pheno_sim.sh handles data simulation. It relies on the GCTA software https://yanglab.westlake.edu.cn/software/gcta/#GWASSimulation. GCTA allows for the simulation of a phenotypes given a VCF of snps according to following formula: y_j = sum(w_{ij}u_i) + e_j, where wij = (x_ij - 2p_i) / sqrt[2p_i(1 - p_i). Here, j indexes individuals and i causal snps; x_ij is the number of reference alleles for the i^th causal variant, p_i is the frequency of the i^th causal variant, and u_i is the effect size. Errors e_j are 0 mean normally distributed with variance on the order of 1/h^2 - 1, where h specifies the heritability. The script loops over various values of effect size and heritability h in order to generate a variety of regimes for investigation.
+The script ./pheno_sim.sh handles data simulation. It relies on the GCTA software. GCTA allows for the simulation of a phenotypes given a VCF of snps according to following formula: $y_j = \sum_i(w_{ij} \cdot u_i) + e_j$,
+where $w_{ij} = (x_{ij} - 2p_i) / \sqrt{2p_i(1 - p_i)}$. Here, $j$ indexes individuals and $i$ causal snps; $x_{ij}$ is the number of reference alleles for the $i^{th}$ causal variant, $p_i$ is the frequency of the $i^{th}$ causal variant, and $u_i$ is the effect size (akin to $\beta_i in our class slides). Errors $e_j$ are $0$ mean normally distributed with variance on the order of $1/h^2 - 1$, where $h \in (0, 1)$ specifies the trait heritability. ./pheno_sim.sh is built around commands of the following type:
+```
+
+./gcta64  --bfile causal_snps  \
+                   --simu-qt \
+                   --simu-causal-loci "trait_causal_${beta_multiple}.snplist" \
+                   --simu-hsq ${h} \
+                   --simu-rep 1  \
+                   --out "traits_h=${h}_betamult=${beta_multiple}"
+
+```
+Here the binary files contains snps for individuals $j$,  ```simu-causal-loci``` is a text file with a column of causal snps and effect sizes $u_i$, ```simu-hsq``` specifies the heritability $h$, and ```simu-rep``` gives the number of simulations to run. The script loops over various values of effect size and heritability $h$ in order to generate a variety of regimes for investigation.
 
 The script ___ carries out fitting of LMMs, also relying on GCTA software. 
 
 As we expand our analysis to larger data sets, we will include a script for spltting the 1000 Genomes VCF into the relevant files for analysis.
 
+### DESCRIPTION OF FILES 
 
-# EXPERIMENT DESIGN GOING FORWARDS
+### EXPERIMENT DESIGN GOING FORWARDS
 
-So far we've simulated phenotypes and fit models for a small sample of around 200 individuals at 6 snps (using the VCF for eye color phenotypes from problem set 3. This was sufficient as a proof of concept. 
+So far we've simulated phenotypes and fit models for a small sample of around 200 individuals at 6 snps (using the VCF for eye color phenotypes from problem set 3). This was sufficient as a proof of concept. 
 
 We plan to run the full experiments on a single chromosome (restricted to maf > .05). We will vary heritability and effect size in a variety of ways and report the accuracy of the estimation methods (perhaps visually as a function of the norm of the effect size vector and true underlying heritability used in the phenotype simulations). 
 
