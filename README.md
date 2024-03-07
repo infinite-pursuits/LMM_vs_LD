@@ -51,7 +51,6 @@ The x-axis is ground-truth heritability, which is the value we set to while simu
 
 We observe that error between the ground truth and calculated heritabilities is lower for high or very low values of heritabilities.
 
-For each ground truth heritability we have multiple simul
 ### TO DO
 
 Firstly, we are left with the other half of the project, that is calculating heritability using LD-Score Regression. We plan to run the full experiments on a single chromosome (restricted to maf > .05). We will vary heritability and effect size in a variety of ways and report the accuracy of the estimation methods (perhaps visually as a function of the norm of the effect size vector and true underlying heritability used in the phenotype simulations). 
