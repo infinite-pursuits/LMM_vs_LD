@@ -31,6 +31,8 @@ As we expand our analysis to larger data sets, we will include a script for splt
 
 ### DESCRIPTION OF FILES 
 
+```Simulations``` is a folder containing phenotype simulations with ```.phen``` extensioins, as well as files passed to ```--simu-causal-loci``` specifying effect sizes in the format described above. The simulation files are titled in the form ```"traits_h=${h}_betamult=${beta_multiple}```, where $h$ represents different heritabilities, and beta multiples refers to multiples of a effect size vector with components on various orders of magnitude. 
+
 ### EXPERIMENT DESIGN GOING FORWARDS
 
 So far we've simulated phenotypes and fit models for a small sample of around 200 individuals at 6 snps (using the VCF for eye color phenotypes from problem set 3). This was sufficient as a proof of concept. 
