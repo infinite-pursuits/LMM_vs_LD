@@ -39,3 +39,7 @@ So far we've simulated phenotypes and fit models for a small sample of around 20
 
 We plan to run the full experiments on a single chromosome (restricted to maf > .05). We will vary heritability and effect size in a variety of ways and report the accuracy of the estimation methods (perhaps visually as a function of the norm of the effect size vector and true underlying heritability used in the phenotype simulations). 
 
+|   | Simulation 1 (0.01) | Simulation 2 (1) | Simulation 3 (0.01)| Simulation 4 (1) |
+| -------- | -------- | -------- | -------- | -------- |
+| LMM Heritability |0  | 0.000001 | 0.104| 0.062 |
+| GT Heritability| 0.001 | 0.001 | 0.1 | 0.1 |
