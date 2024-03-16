@@ -32,7 +32,7 @@ The script ```./pheno_sim.sh``` handles data simulation which is built around co
 ```
 Here the binary files contains snps for individuals $j$,  ```simu-causal-loci``` is a text file with a column of causal snps and effect sizes, ```simu-hsq``` specifies the heritability $h$, and ```simu-rep``` gives the number of simulations to run. The script loops over various values of effect size and heritability $h$ in order to generate a variety of regimes for investigation.
 
-The script ```LMM_heritability.sh``` carries out fitting of LMMs, and also relyies on the GCTA software. The first command ```mlma`` produces the genetic relationship matrix. We finally estimate the heritability with the command
+The script ```LMM_heritability.sh``` carries out fitting of LMMs, and also relyies on the GCTA software. The first command ```--make-grm``` produces the genetic relationship matrix. We finally estimate the heritability with the command
 ```
 ./gcta64 --grm  /path/to/GRM/ \
                  --pheno /path/to/phenotypes \
