@@ -1,0 +1,42 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./munge_sumstats.py \
+--out munge_stats_test_herit.01_beta10_covar \
+--N 787.0 \
+--sumstats gwas_out_study_snps_test_herit.01_beta10_witha2_covar.assoc.linear 
+
+Interpreting column names as follows:
+A1:	Allele 1, interpreted as ref allele for signed sumstat.
+P:	p-Value
+BETA:	[linear/logistic] regression coefficient (0 --> no effect; above 0 --> A1 is trait/risk increasing)
+A2:	Allele 2, interpreted as non-ref allele for signed sumstat.
+SNP:	Variant ID (e.g., rs number)
+
+Reading sumstats from gwas_out_study_snps_test_herit.01_beta10_witha2_covar.assoc.linear into memory 5000000 SNPs at a time.
+Read 87568 SNPs from --sumstats file.
+Removed 12 SNPs with missing values.
+Removed 0 SNPs with INFO <= 0.9.
+Removed 0 SNPs with MAF <= 0.01.
+Removed 0 SNPs with out-of-bounds p-values.
+Removed 38795 variants that were not SNPs or were strand-ambiguous.
+48761 SNPs remain.
+Removed 0 SNPs with duplicated rs numbers (48761 SNPs remain).
+Using N = 787.0
+Median value of BETA was -0.04591, which seems sensible.
+Writing summary statistics for 48761 SNPs (48761 with nonmissing beta) to munge_stats_test_herit.01_beta10_covar.sumstats.gz.
+
+Metadata:
+Mean chi^2 = 0.948
+WARNING: mean chi^2 may be too small.
+Lambda GC = 0.921
+Max chi^2 = 14.285
+0 Genome-wide significant SNPs (some may have been removed by filtering).
+
+Conversion finished at Thu Mar 14 03:12:52 2024
+Total time elapsed: 1.05s

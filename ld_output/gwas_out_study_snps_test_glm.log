@@ -1,0 +1,15 @@
+PLINK v1.90b6.9 64-bit (4 Mar 2019)
+Options in effect:
+  --bfile /home/cyadav/teams/heritability-project/gcta64/study_SNPs
+  --glm
+  --keep-allele-order
+  --out gwas_out_study_snps_test_glm
+
+Hostname: dsmlp-jupyter-cyadav
+Working directory: /home/cyadav/teams/heritability-project/gcta64
+Start time: Wed Mar 13 16:12:53 2024
+
+Error: Unrecognized flag ('--glm').
+For more information, try 'plink --help <flag name>' or 'plink --help | more'.
+
+End time: Wed Mar 13 16:12:53 2024

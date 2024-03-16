@@ -1,0 +1,33 @@
+PLINK v1.90b6.9 64-bit (4 Mar 2019)
+Options in effect:
+  --allow-no-sex
+  --bfile /home/cyadav/teams/heritability-project/gcta64/study_SNPs_small
+  --exclude /home/cyadav/teams/heritability-project/gcta64/dups
+  --linear
+  --maf 0.05
+  --out gwas_out_study_snps_test_herit.1_beta1_small
+  --pheno /home/cyadav/teams/heritability-project/gcta64/Exp_Small/traits_h=.1_betamult=1_small.phen
+
+Hostname: dsmlp-jupyter-cyadav
+Working directory: /home/cyadav/teams/heritability-project/gcta64
+Start time: Thu Mar 14 04:15:16 2024
+
+Random number seed: 1710389716
+385412 MB RAM detected; reserving 192706 MB for main workspace.
+6 variants loaded from .bim file.
+99 people (0 males, 0 females, 99 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to gwas_out_study_snps_test_herit.1_beta1_small.nosex
+.
+99 phenotype values present after --pheno.
+--exclude: 6 variants remaining.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 99 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+1 variant removed due to minor allele threshold(s)
+(--maf/--max-maf/--mac/--max-mac).
+5 variants and 99 people pass filters and QC.
+Phenotype data is quantitative.
+Writing linear model association results to
+gwas_out_study_snps_test_herit.1_beta1_small.assoc.linear ... done.
+
+End time: Thu Mar 14 04:15:16 2024
