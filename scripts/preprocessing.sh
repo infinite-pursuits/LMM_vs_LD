@@ -20,9 +20,6 @@ PCAPREFIX=~/teams/heritability-project/gcta64/covars_pca
 
 plink --vcf $VCF --maf 0.1 --keep individuals.txt --double-id --make-bed --out $PREFIX/study_SNPs
 
-# LD-pruning: See example in https://dalexander.github.io/admixture/admixture-manual.pdf
-#plink --bfile ps2_admixture --indep-pairwise 50 10 0.1
-#plink --bfile ps2_admixture --extract plink.prune.in --make-bed --out $PREFIX.pruned
 
 # run PCA, k=4
 plink --pca 3 --bfile $PREFIX/study_SNPs --out $PCAPREFIX/pca_covars --allow-no-sex 
