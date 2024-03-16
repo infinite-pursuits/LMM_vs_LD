@@ -12,7 +12,7 @@ We plan to utilize the following tools in carrying out our comparison. For runni
 
 ### EXPLANATION OF REPO
 
-```libraries.yml``` : All the libraries needed to run our code.
+```libraries.yml``` : All the libraries with specific versions needed to run our code.
 
 ```scripts``` : All the scripts to run the the code. The paths mentioned on the top of the scripts have to be changed according to your convenience. To generate phenotypes, run ```preprocessing.sh``` followed by ```pheno_sim.sh```. To run LMM, use  ```LMM_heritability.sh``` while for LD-Score Regression, run ```ld_score_reg.sh```.
 
