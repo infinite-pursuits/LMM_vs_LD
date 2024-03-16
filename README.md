@@ -18,31 +18,39 @@ We plan to utilize the following tools in carrying out our comparison. For runni
 
 The phenotype data we used is present in ```pheno_data``` folder.  The outputs from running the LMM and LDSC scripts are present in ```lmm_output``` and ```ld_output``` folders respectively. The final plots are available in the ```plots``` folder while the code to generate those plots is present in the ```plotting_ntbks``` folder. ```Conjecture_LMM``` has data and results for the additional experiments/ablations we did with LMMs. ```covars_pca``` has the PCA results. ```dups``` has duplicate SNPs that need to removed, sometimes the LD scores code causes problems due to duplicate SNPs.
 
-Our codebase currently contains two scripts, one for data phenotype simulation and one which executes commands relevant to the fitting of LMMs.
 
-The script ```./pheno_sim.sh``` handles data simulation. It relies on the GCTA software. GCTA allows for the simulation of a phenotypes given a VCF of snps according to following formula: $y_j = \sum_i(w_{ij} \cdot \beta_i) + e_j$,
-where $w_{ij} = (x_{ij} - 2p_i) / \sqrt{2p_i(1 - p_i)}$. Here, $j$ indexes individuals and $i$ causal snps; $x_{ij}$ is the number of reference alleles for the $i^{th}$ causal variant, $p_i$ is the frequency of the $i^{th}$ causal variant, and $\beta_i$ is the effect size. Errors $e_j$ are $0$ mean normally distributed with variance on the order of $1/h^2 - 1$, where $h \in (0, 1)$ specifies the trait heritability. ./pheno_sim.sh is built around commands of the following type:
+The script ```./pheno_sim.sh``` handles data simulation which is built around commands of the following type:
 ```
 
-./gcta64  --bfile causal_snps  \
+./gcta64  --bfile /path/to/causal_snps  \
                    --simu-qt \
-                   --simu-causal-loci "trait_causal_${beta_multiple}.snplist" \
+                   --simu-causal-loci \path\causalsnps\effectsizes \
                    --simu-hsq ${h} \
                    --simu-rep 1  \
-                   --out "traits_h=${h}_betamult=${beta_multiple}"
+                   --out \path\to\output
 
 ```
-Here the binary files contains snps for individuals $j$,  ```simu-causal-loci``` is a text file with a column of causal snps and effect sizes $u_i$, ```simu-hsq``` specifies the heritability $h$, and ```simu-rep``` gives the number of simulations to run. The script loops over various values of effect size and heritability $h$ in order to generate a variety of regimes for investigation.
+Here the binary files contains snps for individuals $j$,  ```simu-causal-loci``` is a text file with a column of causal snps and effect sizes, ```simu-hsq``` specifies the heritability $h$, and ```simu-rep``` gives the number of simulations to run. The script loops over various values of effect size and heritability $h$ in order to generate a variety of regimes for investigation.
 
 The script ```LMM_heritability.sh``` carries out fitting of LMMs, and also relyies on the GCTA software. The first command ```mlma`` produces the genetic relationship matrix. We finally estimate the heritability with the command
 ```
-./gcta64 --reml \
-                 --grm-bin "GCTAgrm_herit${herit}_beta${betamult}" \
-                 --pheno "traits_h=${herit}_betamult=${betamult}.phen" \
-                 --out "GCTAherit_herit${herit}_beta${betamult}"
+./gcta64 --grm  /path/to/GRM/ \
+                 --pheno /path/to/phenotypes \
+                 --reml \
+                 --out /path/to/output \
+                 --qcovar /path/to/pca/covariates
 ```
-for a given underlying heritability $h$ and beta multiple pair. 
+for a given underlying heritability $h$ and beta multiple pair.
 
+The script ```ld_reg_score.sh``` runs the LD score regression model via the LDSC library. The main command is
+```
+./ldsc/ldsc.py --h2 /path/to/summary/stats \
+               --w-ld /path/to/ld/scores \
+               --ref-ld /path/to/ref/ld/scores \
+               --out /path/to/output
+
+```
+where we input the summary statistics (in the format mentioned 
 As we expand our analysis to larger data sets, we will include a script for spltting the 1000 Genomes VCF into the relevant files for analysis.
 
 ### EXPERIMENT OUTCOMES
