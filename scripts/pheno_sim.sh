@@ -5,25 +5,27 @@
 # Note: to get execution permission: chmod +x pheno_sim.sh
 # Assumes existance of trait_causal.snplist containing snps and effect sizes
 
-
-### first, extract SNPs for a subset of population 
-
-plink   --vcf ~/public/ps3/ps3_pred_eyecolor.vcf.gz \
-        --out causal_snps \
-        --make-bed
  
 ### simulate for a variety of beta multiples, hertiability 
 
-for beta_multiple in .01 1  # mutlitples of original effect sizes
+PHENOFOLDER=/home/cyadav/teams/heritability-project/gcta64/pheno_data
+STUDYSNPSFOLDER=/home/cyadav/teams/heritability-project/gcta64/study_snps_folder
+
+
+for beta_multiple in .01 .1 1 2 5 10   # mutlitples of original effect sizes .01 .1 1 2 5 10 
 do
-    for h in .001 .1  # can add more; heritability
+    for h in .01 .1 .2 .5 .9 # can add more; heritability .01 .1 .2 .5 .9
     do
-         ./gcta64  --bfile causal_snps  \
+         
+         # create a temp file with beta_multiple * original effect to use for the simulation
+         awk -v m=${beta_multiple} '{$2=$2*m; print $0}' $STUDYSNPSFOLDER/causal_SNPs.snplist > $STUDYSNPSFOLDER/temp.snplist 
+         
+         ./gcta64  --bfile $STUDYSNPSFOLDER/study_SNPs  \
                    --simu-qt \
-                   --simu-causal-loci "trait_causal_${beta_multiple}.snplist" \
+                   --simu-causal-loci $STUDYSNPSFOLDER/temp.snplist \
                    --simu-hsq ${h} \
                    --simu-rep 1  \
-                   --out "traits_h=${h}_betamult=${beta_multiple}"
+                   --out $PHENOFOLDER/traits_h=${h}_betamult=${beta_multiple}
     done
 done
 
