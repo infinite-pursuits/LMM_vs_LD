@@ -49,8 +49,7 @@ The script ```ld_reg_score.sh``` runs the LD score regression model via the LDSC
                --ref-ld /path/to/ref/ld/scores \
                --out /path/to/output
 
-```
-where we input the summary statistics (in the format mentioned 
+``` 
 
 ### EXPERIMENT OUTCOMES
 
