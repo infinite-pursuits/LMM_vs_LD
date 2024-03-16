@@ -10,9 +10,14 @@ We plan to use the 1000Genomes dataset as the basis for our investigation. Unfor
 We plan to utilize the following tools in carrying out our comparison. For running LMMs, we will use GCTA (https://yanglab.westlake.edu.cn/software/gcta/#GWASSimulation). For LD-Score Regression, we will use the LDSC python library (https://github.com/bulik/ldsc). For LD-Score Regresssion, we will have to find the summary statistics and LD values first, and then feed them to the tool.
 
 
-### EXPLANATION OF CODE
+### EXPLANATION OF REPO
 
-All the scripts to run the the code are in the 
+```libraries.yml``` : All the libraries needed to run our code.
+
+```scripts``` : All the scripts to run the the code. The paths mentioned on the top of the scripts have to be changed according to your convenience. To generate phenotypes, run ```preprocessing.sh``` followed by ```pheno_sim.sh```. To run LMM, use  ```LMM_heritability.sh``` while for LD-Score Regression, run ```ld_score_reg.sh```.
+
+The phenotype data we used is present in ```pheno_data``` folder.  The outputs from running the LMM and LDSC scripts are present in ```lmm_output``` and ```ld_output``` folders respectively. The final plots are available in the ```plots``` folder while the code to generate those plots is present in the ```plotting_ntbks``` folder. ```Conjecture_LMM``` has data and results for the additional experiments/ablations we did with LMMs. ```covars_pca``` has the PCA results. ```dups``` has duplicate SNPs that need to removed, sometimes the LD scores code causes problems due to duplicate SNPs.
+
 Our codebase currently contains two scripts, one for data phenotype simulation and one which executes commands relevant to the fitting of LMMs.
 
 The script ```./pheno_sim.sh``` handles data simulation. It relies on the GCTA software. GCTA allows for the simulation of a phenotypes given a VCF of snps according to following formula: $y_j = \sum_i(w_{ij} \cdot \beta_i) + e_j$,
