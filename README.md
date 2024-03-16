@@ -51,7 +51,6 @@ The script ```ld_reg_score.sh``` runs the LD score regression model via the LDSC
 
 ```
 where we input the summary statistics (in the format mentioned 
-As we expand our analysis to larger data sets, we will include a script for spltting the 1000 Genomes VCF into the relevant files for analysis.
 
 ### EXPERIMENT OUTCOMES
 
