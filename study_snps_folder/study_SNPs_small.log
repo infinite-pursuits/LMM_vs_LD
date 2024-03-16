@@ -1,0 +1,37 @@
+PLINK v1.90b6.9 64-bit (4 Mar 2019)
+Options in effect:
+  --double-id
+  --keep individuals.txt
+  --make-bed
+  --out /home/nrittler/teams/heritability-project/gcta64/study_SNPs_small
+  --vcf /home/nrittler/public/ps3/ps3_pred_eyecolor.vcf.gz
+
+Hostname: dsmlp-jupyter-nrittler
+Working directory: /home/nrittler/teams/heritability-project/gcta64
+Start time: Wed Mar 13 22:07:24 2024
+
+Random number seed: 1710367644
+515699 MB RAM detected; reserving 257849 MB for main workspace.
+--vcf:
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs_small-temporary.bed
++
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs_small-temporary.bim
++
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs_small-temporary.fam
+written.
+6 variants loaded from .bim file.
+206 people (0 males, 0 females, 206 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs_small.nosex .
+--keep: 99 people remaining.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 99 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+6 variants and 99 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs_small.bed +
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs_small.bim +
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs_small.fam ... done.
+
+End time: Wed Mar 13 22:07:24 2024

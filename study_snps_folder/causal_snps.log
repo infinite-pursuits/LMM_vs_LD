@@ -1,0 +1,25 @@
+PLINK v1.90b6.9 64-bit (4 Mar 2019)
+Options in effect:
+  --make-bed
+  --out causal_snps
+  --vcf /home/nrittler/public/ps3/ps3_pred_eyecolor.vcf.gz
+
+Hostname: dsmlp-jupyter-nrittler
+Working directory: /home/nrittler/teams/heritability-project/gcta64
+Start time: Sun Mar 10 06:28:21 2024
+
+Random number seed: 1710052101
+257651 MB RAM detected; reserving 128825 MB for main workspace.
+--vcf: causal_snps-temporary.bed + causal_snps-temporary.bim +
+causal_snps-temporary.fam written.
+6 variants loaded from .bim file.
+206 people (0 males, 0 females, 206 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to causal_snps.nosex .
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 206 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+6 variants and 206 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to causal_snps.bed + causal_snps.bim + causal_snps.fam ... done.
+
+End time: Sun Mar 10 06:28:21 2024

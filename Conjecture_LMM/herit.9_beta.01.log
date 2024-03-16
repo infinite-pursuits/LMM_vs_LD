@@ -1,0 +1,73 @@
+*******************************************************************
+* Genome-wide Complex Trait Analysis (GCTA)
+* version v1.94.1 Linux
+* Built at Nov 15 2022 21:14:25, by GCC 8.5
+* (C) 2010-present, Yang Lab, Westlake University
+* Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
+*******************************************************************
+Analysis started at 22:54:20 UTC on Fri Mar 15 2024.
+Hostname: dsmlp-jupyter-nrittler
+
+Accepted options:
+--grm Conjecture/GCTAgrm_herit.9_beta.01
+--pheno Conjecture/traits_h=.9_betamult=.01.phen
+--reml
+--out Conjecture/herit.9_beta.01
+--qcovar pca_covars.qcovar
+--thread-num 10
+
+Note: the program will be running on 10 threads.
+
+Reading IDs of the GRM from [Conjecture/GCTAgrm_herit.9_beta.01.grm.id].
+787 IDs are read from [Conjecture/GCTAgrm_herit.9_beta.01.grm.id].
+Reading the GRM from [Conjecture/GCTAgrm_herit.9_beta.01.grm.bin].
+GRM for 787 individuals are included from [Conjecture/GCTAgrm_herit.9_beta.01.grm.bin].
+Reading phenotypes from [Conjecture/traits_h=.9_betamult=.01.phen].
+Non-missing phenotypes of 787 individuals are included from [Conjecture/traits_h=.9_betamult=.01.phen].
+Reading quantitative covariate(s) from [pca_covars.qcovar].
+3 quantitative covariate(s) of 787 individuals are included from [pca_covars.qcovar].
+
+3 quantitative variable(s) included as covariate(s).
+787 individuals are in common in these files.
+
+Performing  REML analysis ... (Note: may take hours depending on sample size).
+787 observations, 4 fixed effect(s), and 2 variance component(s)(including residual variance).
+Calculating prior values of variance components by EM-REML ...
+Updated prior values: 0.000186065 0.000182745
+logL: 2750.84
+Running AI-REML algorithm ...
+Iter.	logL	V(G)	V(e)	
+1	2751.12	0.00019	0.00018	
+2	2751.23	0.00020	0.00017	
+3	2751.32	0.00020	0.00017	
+4	2751.32	0.00020	0.00017	
+5	2751.32	0.00020	0.00017	
+Log-likelihood ratio converged.
+
+Calculating the logLikelihood for the reduced model ...
+(variance component 1 is dropped from the model)
+Calculating prior values of variance components by EM-REML ...
+Updated prior values: 0.00036
+logL: 2714.24526
+Running AI-REML algorithm ...
+Iter.	logL	V(e)	
+1	2714.89	0.00036	
+2	2714.89	0.00036	
+3	2714.89	0.00036	
+Log-likelihood ratio converged.
+
+Summary result of REML analysis:
+Source	Variance	SE
+V(G)	0.000197	0.000032
+V(e)	0.000169	0.000022
+Vp	0.000366	0.000021
+V(G)/Vp	0.537665	0.067991
+
+Sampling variance/covariance of the estimates of variance components:
+1.000083e-09	-5.301505e-10	
+-5.301505e-10	4.934018e-10	
+
+Summary result of REML analysis has been saved in the file [Conjecture/herit.9_beta.01.hsq].
+
+Analysis finished at 22:54:21 UTC on Fri Mar 15 2024
+Overall computational time: 0.36 sec.

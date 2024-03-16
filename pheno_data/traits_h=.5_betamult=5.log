@@ -1,0 +1,43 @@
+*******************************************************************
+* Genome-wide Complex Trait Analysis (GCTA)
+* version v1.94.1 Linux
+* Built at Nov 15 2022 21:14:25, by GCC 8.5
+* (C) 2010-present, Yang Lab, Westlake University
+* Please report bugs to Jian Yang <jian.yang@westlake.edu.cn>
+*******************************************************************
+Analysis started at 21:38:29 UTC on Wed Mar 13 2024.
+Hostname: dsmlp-jupyter-nrittler
+
+Accepted options:
+--bfile study_SNPs
+--simu-qt
+--simu-causal-loci temp.snplist
+--simu-hsq 0.5
+--simu-rep 1
+--out traits_h=.5_betamult=5
+
+
+Reading PLINK FAM file from [study_SNPs.fam].
+787 individuals to be included from [study_SNPs.fam].
+Reading PLINK BIM file from [study_SNPs.bim].
+87568 SNPs to be included from [study_SNPs.bim].
+Warning: Duplicated SNP ID "rs71329838" has been changed to "rs71329838_36251"
+.Warning: Duplicated SNP ID "rs11269404" has been changed to "rs11269404_37858"
+.Warning: Duplicated SNP ID "rs112367109" has been changed to "rs112367109_48151"
+.Reading PLINK BED file from [study_SNPs.bed] in SNP-major format ...
+Genotype data for 787 individuals and 87568 SNPs to be included from [study_SNPs.bed].
+Simulation parameters:
+Number of simulation replicate(s) = 1 (Default = 1)
+Heritability  = 0.5 (Default = 0.1)
+
+Reading a list of SNPs (as causal variants) from [temp.snplist].
+10 SNPs (as causal variants) to be included from [temp.snplist].
+10 user-specified QTL effects.
+Calculating allele frequencies ...
+Recoding genotypes (individual major mode) ...
+Simulated QTL effect(s) have been saved in [traits_h=.5_betamult=5.par].
+Simulating GWAS based on the real genotyped data with 1 replicate(s) ...
+Simulated phenotypes of 787 individuals have been saved in [traits_h=.5_betamult=5.phen].
+
+Analysis finished at 21:38:30 UTC on Wed Mar 13 2024
+Overall computational time: 1.21 sec.

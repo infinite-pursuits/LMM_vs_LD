@@ -1,0 +1,26 @@
+PLINK v1.90b6.9 64-bit (4 Mar 2019)
+Options in effect:
+  --allow-no-sex
+  --bfile study_SNPs_small
+  --out pca_covars_small
+  --pca 1
+
+Hostname: dsmlp-jupyter-nrittler
+Working directory: /home/nrittler/teams/heritability-project/gcta64
+Start time: Wed Mar 13 22:06:10 2024
+
+Random number seed: 1710367570
+515699 MB RAM detected; reserving 257849 MB for main workspace.
+6 variants loaded from .bim file.
+99 people (0 males, 0 females, 99 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to pca_covars_small.nosex .
+Using up to 255 threads (change this with --threads).
+Before main variant filters, 99 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+6 variants and 99 people pass filters and QC.
+Note: No phenotypes present.
+Relationship matrix calculation complete.
+--pca: Results saved to pca_covars_small.eigenval and pca_covars_small.eigenvec
+.
+
+End time: Wed Mar 13 22:06:11 2024

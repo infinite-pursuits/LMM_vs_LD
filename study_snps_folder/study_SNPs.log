@@ -1,0 +1,38 @@
+PLINK v1.90b6.9 64-bit (4 Mar 2019)
+Options in effect:
+  --double-id
+  --keep individuals.txt
+  --maf 0.1
+  --make-bed
+  --out /home/nrittler/teams/heritability-project/gcta64/study_SNPs
+  --vcf /home/nrittler/public/1000Genomes/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
+
+Hostname: dsmlp-jupyter-nrittler
+Working directory: /home/nrittler/teams/heritability-project/gcta64
+Start time: Wed Mar 13 21:37:10 2024
+
+Random number seed: 1710365830
+515699 MB RAM detected; reserving 257849 MB for main workspace.
+--vcf:
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs-temporary.bed +
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs-temporary.bim +
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs-temporary.fam
+written.
+1105538 variants loaded from .bim file.
+2504 people (0 males, 0 females, 2504 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs.nosex .
+--keep: 787 people remaining.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 787 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate in remaining samples is 0.999806.
+1017970 variants removed due to minor allele threshold(s)
+(--maf/--max-maf/--mac/--max-mac).
+87568 variants and 787 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to /home/nrittler/teams/heritability-project/gcta64/study_SNPs.bed +
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs.bim +
+/home/nrittler/teams/heritability-project/gcta64/study_SNPs.fam ... done.
+
+End time: Wed Mar 13 21:38:00 2024
