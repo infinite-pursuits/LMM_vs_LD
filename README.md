@@ -45,10 +45,6 @@ for a given underlying heritability $h$ and beta multiple pair.
 
 As we expand our analysis to larger data sets, we will include a script for spltting the 1000 Genomes VCF into the relevant files for analysis.
 
-### DESCRIPTION OF FILES 
-
-```Simulations``` is a folder containing phenotype simulations from 6 causal SNPs with ```.phen``` extensioins, as well as files with ```.snplist``` extensions passed to ```--simu-causal-loci```; these specify effect sizes in the format described above. The simulation files are titled in the form ```"traits_h=${h}_betamult=${beta_multiple}```, where $h$ signifies heritability values, and "beta multiple" refers to a multiple of an underlying effect size vector $\beta$ with components on various orders of magnitude. For our simulations on 6 causal SNPs, the underlying $\beta$ used is $\beta = (1,.5, .1, .01, -.1, -.5)^T$. We considered "beta multiples" of $.01$, $1$, $2$, $5$, and $10$, and heritabilitiy values of $.01$, $.1$, $.2$, $.5$ and $.9$.  ```Simulations``` contains simulated phenotypes from all combinations of these beta multiples and hertiabilities. 
-
 ### EXPERIMENT OUTCOMES
 
 The final experiment results are in the ```plots``` folder. The report is available ```report.pdf``` . Overall we find that both methods underestimate the heritability -- this could be due to the number of samples being way lesser than the number of SNPs. Also LMM performs way better when compared to LDSC -- this might come from the compounding errors accumulated from GWAS summary statistics and LD scores which have to calculated for the regression. Please read the report for a detailed discussion.
