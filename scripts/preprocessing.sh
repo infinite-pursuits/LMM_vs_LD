@@ -20,8 +20,7 @@ PCAPREFIX=~/teams/heritability-project/gcta64/covars_pca
 
 plink --vcf $VCF --maf 0.1 --keep individuals.txt --double-id --make-bed --out $PREFIX/study_SNPs
 
-
-# run PCA, k=4
+# run PCA, k=3
 plink --pca 3 --bfile $PREFIX/study_SNPs --out $PCAPREFIX/pca_covars --allow-no-sex 
 
 # rename file of projections onto top k PCs to conform with GCTA software 
