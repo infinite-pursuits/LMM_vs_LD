@@ -55,4 +55,4 @@ As we expand our analysis to larger data sets, we will include a script for splt
 
 ### EXPERIMENT OUTCOMES
 
-The final experiment results are in the ```plots``` folder. The report is available ```report.pdf``` . Overall we find that both methods underestimate the heritability -- this could be due to the number of samples being way lesser than the number of SNPs. Also LMM performs way better when compared to LDSC -- this might come from the compounding errors accumulated from GWAS summary statistics and LD scores which have to calculated for the regression. Please read the report for a detailed discussion.
+The final experimental results can be visualized in the ```plots``` folder. The report is available in the file ```report.pdf``` . Overall we find that both methods underestimate the heritability -- this could be due to the simulation construction. LMM tends to be more reliable than LDSC -- this might come from a compounding of errors accumulated from GWAS summary statistics and LD scores which have to calculated for the regression. See the report for more detailed discussion.
